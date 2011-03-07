@@ -1,0 +1,182 @@
+<!-- INCLUDE stats/stats_header.html -->
+<!--version $Id: stats_gallery.html 102 2010-03-09 16:12:42Z marc1706 $ //-->
+<form id="stats" method="post" action="{S_STATS_ACTION}"{S_FORM_ENCTYPE}>
+<table class="tablebg" width="100%" cellspacing="1">
+<tr>
+	<th colspan="3" width="100%">{L_STATS} - {L_TITLE}</th>
+</tr>
+<tr>
+	<td class="row1" colspan="3" align="center"><p class="genmed"><img src="images/spacer.gif" width="4" alt="" /></p></td>
+</tr>
+<tr>
+	<th colspan="3">{L_OVERALL}</th>
+</tr>
+<tr>
+	<td>
+	<table class="fs_details_list">
+		<tr>
+			<td class="col1">{L_TOTAL_CATS}:</td><td class="col2">{TOTAL_CATS}</td>
+			<td class="col3">{L_TOTAL_ALBUMS}:</td><td class="col4">{TOTAL_ALBUMS}</td>
+		</tr>		
+		<tr>
+			<td class="col1">{L_TOTAL_CONTESTS}:</td> <td class="col2">{TOTAL_CONTESTS}</td>
+			<td class="col3"></td> <td class="col4"></td>
+		</tr>
+		<tr>
+			<td class="col1">{L_TOTAL_IMAGES}:</td> <td class="col2">{TOTAL_IMAGES}</td>
+			<td class="col3">{L_TOTAL_COMMENTS}:</td> <td class="col4">{TOTAL_COMMENTS}</td>
+		</tr>
+	</table>
+	</td>
+</tr>
+<tr>
+	<th colspan="3">{L_IMAGE_INFO}</th>
+</tr>
+<tr>
+	<td>
+	<table class="fs_details_list">
+		<tr>
+			<td class="col1">{L_APPROVED_IMAGES}:</td><td class="col2">{APPROVED_IMAGES}</td>
+			<td class="col3">{L_UNAPPROVED_IMAGES}:</td><td class="col4">{UNAPPROVED_IMAGES}</td>
+		</tr>		
+		<tr>
+			<td class="col1">{L_LOCKED_IMAGES}:</td> <td class="col2">{LOCKED_IMAGES}</td>
+			<td class="col3">{L_CONTEST_IMAGES}:</td> <td class="col4">{CONTEST_IMAGES}</td>
+		</tr>
+	</table>
+	</td>
+</tr>
+<tr>
+	<th colspan="3">{TOP_ALBUMS_BY_IMAGES}</th>
+</tr>
+<tr>
+	<td>
+	<table class="fs_details_graphs">
+		<!-- IF S_TOP_ALBUMS_IMAGES -->
+			<colgroup span="4">
+				<col class="col_cat" />
+				<col class="col_bar" />
+				<col class="col_count" />
+				<col class="col_pct" />
+			</colgroup>
+			<thead>
+			<tr>
+				<td>{L_ALBUMS}</td>
+				<td></td>
+				<td>{L_COUNT}</td>
+				<td>{L_PERCENT}</td>
+			</tr>
+			</thead>		
+		<!-- BEGIN albums_images_row -->
+			<tr>
+			<td>&bull; <a href="{albums_images_row.U_ALBUM}" title="{albums_images_row.ALBUM_NAME}">{albums_images_row.ALBUM_NAME}</a></td><td><div class="graph" style="width:{albums_images_row.BARWIDTH}%;">&nbsp;</div></td><td>{albums_images_row.COUNT}</td><td>{albums_images_row.PCT}%</td>
+			</tr>
+		<!-- END albums_images_row -->
+		<!-- ELSE --><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{L_NONE}</td></tr>
+		<!-- ENDIF -->
+	</table>
+	</td>
+</tr>
+<tr>
+	<th colspan="3">{TOP_IMAGES_BY_VIEWS}</th>
+</tr>
+<tr>
+	<td>
+	<table class="fs_details_graphs">
+		<!-- IF S_TOP_IMAGES_VIEWS -->
+			<colgroup span="4">
+				<col class="col_cat" />
+				<col class="col_bar" />
+				<col class="col_count" />
+				<col class="col_pct" />
+			</colgroup>
+			<thead>
+			<tr>
+				<td>{L_IMAGES}</td>
+				<td></td>
+				<td>{L_COUNT}</td>
+				<td>{L_PERCENT}</td>
+			</tr>
+			</thead>		
+		<!-- BEGIN images_views_row -->
+			<tr>
+			<td>&bull; <a href="{images_views_row.U_IMAGE}" title="{images_views_row.ALBUM_NAME}">{images_views_row.IMAGE_NAME}</a></td><td><div class="graph" style="width:{images_views_row.BARWIDTH}%;">&nbsp;</div></td><td>{images_views_row.COUNT}</td><td>{images_views_row.PCT}%</td>
+			</tr>
+		<!-- END images_views_row -->
+		<!-- ELSE --><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{L_NONE}</td></tr>
+		<!-- ENDIF -->
+	</table>
+	</td>
+</tr>
+<tr>
+	<th colspan="3">{TOP_IMAGES_BY_RATING}</th>
+</tr>
+<tr>
+	<td>
+	<table class="fs_details_graphs">
+		<!-- IF S_TOP_IMAGES_RATING -->
+			<colgroup span="4">
+				<col class="col_cat" />
+				<col class="col_bar" />
+				<col class="col_count" />
+				<col class="col_pct" />
+			</colgroup>
+			<thead>
+			<tr>
+				<td>{L_IMAGES}</td>
+				<td></td>
+				<td>{L_COUNT}</td>
+				<td>{L_PERCENT}</td>
+			</tr>
+			</thead>		
+		<!-- BEGIN images_rating_row -->
+			<tr>
+			<td>&bull; <a href="{images_rating_row.U_IMAGE}" title="{images_rating_row.ALBUM_NAME}">{images_rating_row.IMAGE_NAME}</a></td><td><div class="graph" style="width:{images_rating_row.BARWIDTH}%;">&nbsp;</div></td><td>{images_rating_row.COUNT}</td><td>{images_rating_row.PCT}%</td>
+			</tr>
+		<!-- END images_rating_row -->
+		<!-- ELSE --><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{L_NONE}</td></tr>
+		<!-- ENDIF -->
+	</table>
+	</td>
+</tr>
+<tr>
+	<th colspan="3">{TOP_USER_BY_IMAGES}</th>
+</tr>
+<tr>
+	<td>
+	<table class="fs_details_graphs">
+		<!-- IF S_TOP_USERS_IMAGES -->
+			<colgroup span="4">
+				<col class="col_cat" />
+				<col class="col_bar" />
+				<col class="col_count" />
+				<col class="col_pct" />
+			</colgroup>
+			<thead>
+			<tr>
+				<td>{L_USERS}</td>
+				<td></td>
+				<td>{L_COUNT}</td>
+				<td>{L_PERCENT}</td>
+			</tr>
+			</thead>		
+		<!-- BEGIN users_images_row -->
+			<tr>
+			<td>&bull; {users_images_row.U_USER}</td><td><div class="graph" style="width:{users_images_row.BARWIDTH}%;">&nbsp;</div></td><td>{users_images_row.COUNT}</td><td>{users_images_row.PCT}%</td>
+			</tr>
+		<!-- END users_images_row -->
+		<!-- ELSE --><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{L_NONE}</td></tr>
+		<!-- ENDIF -->
+	</table>
+	</td>
+</tr>
+<tr>
+	<td style="text-align: center;"><span>{LIMIT_SELECT_BOX}</span></td>
+</tr>
+<tr>
+	<td style="text-align: right;"><span><i>{AS_ON}</i></span></td>
+</tr>
+</table>
+<div>{S_FORM_TOKEN}</div>
+</form>
+<!-- INCLUDE stats/stats_footer.html -->
